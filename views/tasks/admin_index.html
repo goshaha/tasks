@@ -1,0 +1,19 @@
+<h3>Tasks</h3><br/>
+<table class="table table-striped" style="width: 400px;">
+  <thead>
+    <td><b>Ф.И.О</b></td>
+    <td><b>Оценка</b></td>
+     <td><b>Задача</b></td>
+  </thead>
+<?php foreach($data['tasks'] as $task_data) { ?>
+    <tr>
+        <td><b><?=$task_data['name']?></b></td>
+        <td><b><?=$task_data['rating']?></b></td>
+        <td><b><?=$task_data['text']?></b></td>
+        <td align="right">
+            <a href="/admin/tasks/edit/<?=$task_data['id']?>"><button class="btn btn-sm btn-primary">edit</button></a>
+            <a href="/admin/tasks/delete/<?=$task_data['id']?>" onclick="return confirmDelete();"><button class="btn btn-sm btn-warning">delete</button></a>
+        </td>
+    </tr>
+<?php } ?>
+</table>

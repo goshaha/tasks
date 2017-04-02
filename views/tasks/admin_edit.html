@@ -1,0 +1,17 @@
+<h3>Edit Tasks </h3><br/>
+<form method="post" action="">
+    <input type="hidden" name="id" value="<?=$data['task']['id']?>" />
+    <div class="form-group">
+        <label for="name">Ф.И.О</label>
+        <input type="text" id="alias" name="name" value="<?=$data['task']['name']?>" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="title">Оценка</label>
+        <input type="text" id="title" name="rating" value="<?=$data['task']['rating']?>" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="content">Задача</label>
+        <textarea name="text" id="content" class="form-control"><?=$data['task']['text']?></textarea>
+    </div>
+    <input type="submit" class="btn btn-success" />
+</form>

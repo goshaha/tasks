@@ -1,0 +1,50 @@
+body{
+    padding-top: 50px;
+
+}
+.starter-template{
+    padding: 40px 15px;
+}
+form{
+    width: 400px;
+    max-width: 400px;
+}
+.alert{
+    width: 400px;
+    max-width: 400px;
+}
+.span9 {
+
+    margin-top: 20px;
+}
+
+#sidebar-menu{
+    display:block;
+    position:static;
+    width: 200px;
+    hight: 800px;
+    margin-top: 20px;
+
+    background-color: #8a6d3b ;
+}
+.span12{
+    background-color:grey;
+    margin-top: 40px;
+}
+#screenshot{
+    margin-top: 50px;
+}
+.active{
+    background-color: #eea236;
+}
+#menu_bt{
+  width: 80px;
+  color: green;
+}
+.ratings{
+
+}
+#child {
+
+    bottom: 5px; /* добавили */
+}

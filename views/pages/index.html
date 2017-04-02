@@ -1,0 +1,14 @@
+<?php foreach($data['pages'] as $page_data) { ?>
+
+<div style="margin-top: 20px;">
+    <a href="/pages/view/<?=$page_data['alias']?>"><?=$page_data['title']?></a>
+</div>
+
+<?php } ?>
+
+<form action="upload.php" enctype="multipart/form-data" method="post">
+ <label for="file">Изображение:</label>
+ <input id="file" type="file" name="file" />
+ <input type="submit" name="submit" value="Загрузить и обрезать" />
+</form>
+ <img src="uploads/bx1XHakdUQQ.jpg" class="img-thumbnail" alt="Cinque Terre">/

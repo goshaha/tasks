@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-sm-2">
+         <a href="/tasks/create"><button type="button" class="btn btn-primary"  style="margin-top:40px;margin-left:40px;">Создать</button></a>
+    </div>
+    <div class="col-sm-10">
+    <div class="container">
+
+      <div class="col-sm-10">
+          <?php foreach($data['tasks'] as $task) { ?>
+    <div class="panel panel-default">
+    <div class="panel-body">
+         <div class="col-sm-3">
+          <div class="ident">
+            <h4>Ф.И.О:</h4>
+          <p><?php echo $task['name'].'<br>';?></p>
+          <h4>Email:</h4>
+          <p><?php echo $task['email'].'<br>';?></p>
+          <h4>Оценка:</h4><span class="badge"><?php echo $task['rating'];?></span>
+        </div>
+         </div>
+         <div class="col-sm-5">
+           <div class="textbody">
+           <p><?php echo $task['text'].'<br>';?></p>
+         </div>
+         </div>
+         <div class="col-sm-4">
+           <div>
+               <img src="<?php echo $task['file'];?>" class="img-thumbnail" alt="Cinque Terre" width="240" height="320">
+           </div>
+         </div>
+     </div>
+    </div>
+    <?php } ?>
+
+      <?php
+      if(isset($_GET['id']))
+    {
+    	$id=$_GET['id'];
+
+    }else{
+      $id = 0;
+    }
+        if($id>1)
+    {
+    echo "<a href='?id=".($id-1)."' class='button'>PREVIOUS</a>";
+    }
+    if($id!=$data['taskspagin'])
+    {
+    echo "<a href='?id=".($id+1)."' class='button'>NEXT</a>";
+    }
+
+    echo "<ul class='page'>";
+    for($i=1;$i<=$data['taskspagin'];$i++)
+    {
+    if($i==$id) { echo "<li class='current'>".$i."</li>"; }
+
+    else { echo "<li><a href='?id=".$i."'>".$i."</a></li>"; }
+    }
+    echo "</ul>";
+    ?>
+
+  </div>
+
+
+     </div>
+    </div>
+  </div>
+ </div>

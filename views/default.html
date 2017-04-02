@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><?=Config::get('site_name')?></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+     <link rel="stylesheet" href="/css/style.css">
+     <script src="/js/admin.js?22"></script>
+     <style>
+     body{
+         padding-top: 50px;
+  }
+  .ident {
+   width: auto;
+   background: #f0f0f0;
+   border-right: 1px solid black;
+   padding: 5px;
+   font-size: 14px;
+   word-break: break-all;
+  }
+  .textbody {
+   width: auto;
+   background: #f0f0f0;
+   border-right: 1px solid black;
+   padding: 10px;
+   font-size: 14px;
+   word-break: break-all;
+  }
+  #img-preview{
+  			width: 240px;
+  			height: 320px;
+  		}
+      #content
+    {
+    	width: 900px;
+    	margin: 0 auto;
+    	font-family:Arial, Helvetica, sans-serif;
+    }
+    .page
+    {
+    float: right;
+    margin: 0;
+    padding: 0;
+    }
+    .page li
+    {
+    	list-style: none;
+    	display:inline-block;
+    }
+    .page li a, .current
+    {
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+    color: #8A8A8A;
+    }
+    .current
+    {
+    	font-weight:bold;
+    	color: #000;
+    }
+    .button
+    {
+    padding: 5px 15px;
+    text-decoration: none;
+    background: #333;
+    color: #F3F3F3;
+    font-size: 13PX;
+    border-radius: 2PX;
+    margin: 0 4PX;
+    display: block;
+    float: left;
+    }
+ </style>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/"><?=Config::get('site_name')?></a>
+            </div>
+        <div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a <?php if( App::getRouter()->getController() == 'tasks' ) {?>class="active"<?php } ?> href="/tasks/">Task</a></li>
+                    <li><a  href="/admin/tasks/">Admin</a></li>
+                </ul>
+            </div>
+         </div>
+        </div>
+    </nav>
+                    <?=$data['content']?>
+
+                    <script>
+                         $('#img').change(function() {
+                           var input = $(this)[0];
+                           if (input.files && input.files[0]) {
+                             if (input.files[0].type.match('image.*')) {
+                               var reader = new FileReader();
+                               reader.onload = function(e) {
+                                 $('#img-preview').attr('src', e.target.result);
+                               }
+                               reader.readAsDataURL(input.files[0]);
+                             } else {
+                               console.log('Error, not image');
+                             }
+                           } else {
+                             console.log('Error');
+                           }
+                         });
+
+                         $('#reset-img-preview').click(function() {
+                           $('#img').val('');
+                           $('#img-preview').attr('src', 'default-preview.jpg');
+                         });
+
+                         $('#form').bind('reset', function() {
+                           $('#img-preview').attr('src', 'default-preview.jpg');
+                         });
+
+                       </script>
+
+</body>
+</html>

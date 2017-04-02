@@ -1,0 +1,60 @@
+
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-10">
+      <div class="container">
+        <div ng-app="">
+        <form action="../tasks/upload" enctype="multipart/form-data" method="post">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" ng-model="name" placeholder="Ф.И.О">
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" ng-model="email" placeholder="Ваш email">
+          </div>
+          <div class="form-group">
+            <label for="text">Text:</label>
+            <textarea class="form-control" rows="4" id="text" name="text" ng-model="text" placeholder="Текс задачи">></textarea>
+          </div>
+
+          <div class="form-group">
+            <div>
+          <input type="file" id="img" multiple accept="image/*" name="file"/>
+        </div>
+      </div>
+          <button type="submit" class="btn btn-success" name="submit">Создать</button>
+        </form>
+        <div class="col-sm-10">
+      <div class="panel panel-default">
+      <div class="panel-body">
+           <div class="col-sm-3">
+            <div class="ident">
+              <h4>Ф.И.О:</h4>
+            <p ng-bind="name"></p>
+            <h4>email:</h4>
+            <p ng-bind="email"></p>
+          </div>
+           </div>
+           <div class="col-sm-5">
+             <div class="textbody">
+               <h4>Задача:</h4>
+             <p ng-bind="text"></p>
+           </div>
+           </div>
+           <div class="col-sm-4">
+             <div class="foto">
+               <img id="img-preview" src="/uploads/no_image.png" />
+             </div>
+           </div>
+       </div>
+      </div>
+    </div>
+  </div>     <!--here angular   -->
+    </div>  <!--here container 10 -->
+    </div>
+  </div>
+ </div>
